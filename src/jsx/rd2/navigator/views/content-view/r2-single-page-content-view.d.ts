@@ -1,0 +1,33 @@
+import { ViewSettings } from '../view-settings';
+import { R2ContentView } from './r2-content-view';
+export declare class R2SinglePageContentView extends R2ContentView {
+    private iframeScaler;
+    private ePubSvg;
+    private ePubRoot;
+    private metaSize;
+    private metaScale;
+    private isVertical;
+    private isFixedLayout;
+    setLayout(isVert: boolean, isFxl: boolean): void;
+    element(): HTMLElement;
+    metaWidth(): number;
+    metaHeight(): number;
+    calculatedHeight(): number;
+    render(): void;
+    setViewSettings(viewSetting: ViewSettings): void;
+    getOffsetFromCfi(cfi: string): number;
+    getOffsetFromElementId(cfi: string): number;
+    getPageIndexOffsetFromCfi(cfi: string): number;
+    getPageIndexOffsetFromElementId(elementId: string): number;
+    getCfi(offsetMain: number, offset2nd: number, backward: boolean): string;
+    scale(scale: number): void;
+    spineItemPageCount(): number;
+    onResize(): void;
+    protected onIframeLoaded(success: boolean): void;
+    private contentDocHeight;
+    private setHeight;
+    private updateMetaSize;
+    private parseMetaSize;
+    private parseSvgSize;
+    private transform;
+}

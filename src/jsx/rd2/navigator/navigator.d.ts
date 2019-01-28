@@ -1,0 +1,30 @@
+import { Location } from './location';
+import { Rendition } from './rendition';
+import { NavigationRequestManager } from './request-manager';
+export declare class Navigator {
+    private rendition;
+    private pub;
+    private requestManager;
+    constructor(rendition: Rendition, requestManager?: NavigationRequestManager);
+    nextScreen(): Promise<void>;
+    previousScreen(): Promise<void>;
+    nextSpineItem(): Promise<void>;
+    previousSpineItem(): Promise<void>;
+    ensureLoaded(): Promise<void>;
+    getCurrentLocationAsync(): Promise<Location | undefined | null>;
+    getCurrentLocation(): Location | undefined | null;
+    gotoBegin(): Promise<void>;
+    gotoLocation(loc: Location): Promise<void>;
+    gotoAnchorLocation(href: string, eleId: string): Promise<void>;
+    getScreenBeginAsync(): Promise<Location | undefined | null>;
+    getScreenBegin(): Location | undefined | null;
+    getScreenEndAsync(): Promise<Location | undefined | null>;
+    getScreenEnd(): Location | undefined | null;
+    isFirstScreen(): boolean;
+    isLastScreen(): boolean;
+    isFirstScreenSpine(): boolean;
+    isFinalScreenSpine(): boolean;
+    getScreenCountSpine(): number;
+    private locationFromPaginationAsync;
+    private locationFromPagination;
+}
